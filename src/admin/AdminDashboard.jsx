@@ -370,12 +370,12 @@ function AdminDashboard({ onLogout, onViewStore }) {
 
   const handleSave = (form) => {
     if (modal.mode === "add") { addProduct(form); showToast("✅ Menu berhasil ditambahkan!"); }
-    else { updateProduct(modal.product.id, form); showToast("✅ Menu berhasil diperbarui!"); }
+    else { updateProduct(modal.product.firestoreId, form); showToast("✅ Menu berhasil diperbarui!"); }
     setModal(null);
   };
 
   const handleDelete = () => {
-    deleteProduct(deleteTarget.id);
+    deleteProduct(deleteTarget.firestoreId);
     showToast("🗑 Menu berhasil dihapus.");
     setDeleteTarget(null);
   };
@@ -516,7 +516,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
                   <p>Tidak ada menu yang ditemukan.</p>
                 </div>
               ) : filtered.map((product) => (
-                <div key={product.id} style={{ display: "grid", gridTemplateColumns: "64px 1fr 120px 110px 100px 120px", padding: "14px 20px", borderBottom: "1px solid #fce4ec", alignItems: "center", transition: "background 0.2s" }}
+                <div key={product.firestoreId} style={{ display: "grid", gridTemplateColumns: "64px 1fr 120px 110px 100px 120px", padding: "14px 20px", borderBottom: "1px solid #fce4ec", alignItems: "center", transition: "background 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.background = "#fffaf9"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
                   <div style={{ width: 48, height: 48, borderRadius: 12, background: `${product.color}30`, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
                     {product.imageUrl ? <img src={product.imageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <span style={{ fontSize: 24 }}>{product.emoji}</span>}
@@ -584,8 +584,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
                 }}>Semua</button>
                 {ORDER_STATUSES.map(s => (
                   <button key={s.id} onClick={() => setOrderStatusFilter(s.id)} style={{
-                    padding: "8px 16px", borderRadius: 2
-                    , cursor: "pointer", fontWeight: 600, fontSize: 12,
+                    padding: "8px 16px", borderRadius: 24, cursor: "pointer", fontWeight: 600, fontSize: 12,
                     background: orderStatusFilter === s.id ? s.bg : "#fff",
                     color: orderStatusFilter === s.id ? s.color : "#8a5c5c",
                     border: orderStatusFilter === s.id ? `1.5px solid ${s.color}` : "1.5px solid transparent",

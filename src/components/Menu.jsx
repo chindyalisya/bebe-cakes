@@ -36,7 +36,7 @@ function Menu({ onAddToCart, wishlist, onToggleWishlist }) {
         {/* Grid */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 24 }}>
           {filtered.map((product, i) => (
-            <div key={product.id} className={`product-card card-hover fade-up d${(i % 4) + 1} ${inView ? "visible" : ""}`}>
+            <div key={product.firestoreId} className={`product-card card-hover fade-up d${(i % 4) + 1} ${inView ? "visible" : ""}`}>
               {/* Image */}
               <div className="img-area" style={{ background: `${product.color}30` }}>
                 {product.imageUrl ? (
@@ -53,13 +53,13 @@ function Menu({ onAddToCart, wishlist, onToggleWishlist }) {
                   }}>{product.badge}</span>
                 )}
                 {/* Wishlist */}
-                <button onClick={() => onToggleWishlist(product.id)} style={{
+                <button onClick={() => onToggleWishlist(product.firestoreId)} style={{
                   position: "absolute", top: 12, right: 12, background: "#fff",
                   border: "none", borderRadius: "50%", width: 36, height: 36,
                   cursor: "pointer", fontSize: 16, display: "flex", alignItems: "center", justifyContent: "center",
                   boxShadow: "0 2px 8px rgba(0,0,0,0.1)", transition: "transform 0.2s ease",
                 }}>
-                  {wishlist.includes(product.id) ? "❤️" : "🤍"}
+                  {wishlist.includes(product.firestoreId) ? "❤️" : "🤍"}
                 </button>
                 {/* Quick add overlay */}
                 <div className="quick-add" onClick={() => onAddToCart(product)} style={{
