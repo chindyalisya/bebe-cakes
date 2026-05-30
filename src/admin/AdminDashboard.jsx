@@ -2,34 +2,6 @@ import { useState, useRef } from "react";
 import { useProducts } from "../context/ProductsContext";
 import { CATEGORIES } from "../data/constants";
 
-function compressImage(file, maxPx = 600, quality = 0.72) {
-  // PNG pakai maxPx lebih kecil agar ukuran file tetap di bawah 1MB
-  if (file.type === "image/png") maxPx = 400;
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    const url = URL.createObjectURL(file);
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      const scale = Math.min(1, maxPx / Math.max(img.width, img.height));
-      const w = Math.round(img.width * scale);
-      const h = Math.round(img.height * scale);
-      const canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, w, h);
-      // Pakai PNG agar transparansi tetap terjaga (cocok dengan warna kartu)
-      const isPng = file.type === "image/png";
-      resolve(isPng
-        ? canvas.toDataURL("image/png")
-        : canvas.toDataURL("image/jpeg", quality)
-      );
-    };
-    img.onerror = reject;
-    img.src = url;
-  });
-}
-
 const EMOJI_OPTIONS = ["🎂","🧁","🍰","🌹","💜","🍓","🍵","🌸","🍋","🏰","🫐","🎉","💍","🍩","🍪","🥐","🍫","🍬","🥧","🎁"];
 const COLOR_OPTIONS = ["#f9c5d1","#ddb0e8","#ffb3ba","#b5e4c0","#f7b3c8","#ffe0b2","#f5d0a9","#c8b4e8","#ffd6e0","#d4f1f9"];
 const BADGE_OPTIONS = ["", "Best Seller", "New", "Popular", "Limited", "Premium"];
@@ -79,27 +51,21 @@ function ProductModal({ product, onSave, onClose }) {
   const [form, setForm] = useState(product || EMPTY_PRODUCT);
   const [imgPreview, setImgPreview] = useState(product?.imageUrl || "");
   const [tab, setTab] = useState("info");
-  const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
 
   const handle = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleImageFile = async (e) => {
+  const handleImageFile = (e) => {
     const file = e.target.files[0];
     if (!file) return;
     e.target.value = "";
-    setUploading(true);
-    try {
-      const compressed = await compressImage(file);
-      setImgPreview(compressed);
-      setForm((f) => ({ ...f, imageUrl: compressed }));
-    } catch (err) {
-      console.error("Kompres gambar gagal:", err);
-    } finally {
-      setUploading(false);
-    }
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      setImgPreview(ev.target.result);
+      setForm((f) => ({ ...f, imageUrl: ev.target.result }));
+    };
+    reader.readAsDataURL(file);
   };
-
   const handleSave = () => {
     if (!form.name.trim() || !form.price.trim()) return;
     // Pakai form.imageUrl yang sudah pasti ter-update
@@ -189,12 +155,8 @@ function ProductModal({ product, onSave, onClose }) {
                 <div style={{ border: "2px dashed #f9c5d1", borderRadius: 16, padding: 20, textAlign: "center", background: "#fff5f7", position: "relative" }}>
                   {imgPreview ? (
                     <div style={{ position: "relative", display: "inline-block" }}>
-                      <img src={imgPreview} alt="preview" style={{ maxHeight: 160, maxWidth: "100%", borderRadius: 12, objectFit: "cover", opacity: uploading ? 0.5 : 1 }} />
-                      {uploading && (
-                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "rgba(255,255,255,0.6)" }}>
-                          <span style={{ fontSize: 13, color: "#e91e8c", fontWeight: 700 }}>⏳ Mengupload...</span>
-                        </div>
-                      )}
+                      <img src={imgPreview} alt="preview" style={{ maxHeight: 160, maxWidth: "100%", borderRadius: 12, objectFit: "cover" }} />
+
                       <button onClick={() => { setImgPreview(""); setForm((f) => ({ ...f, imageUrl: "" })); }} style={{
                         position: "absolute", top: -10, right: -10, background: "#e91e8c", border: "none",
                         borderRadius: "50%", width: 28, height: 28, cursor: "pointer", color: "#fff", fontWeight: 700, fontSize: 14,
@@ -209,9 +171,9 @@ function ProductModal({ product, onSave, onClose }) {
                   <input type="file" accept="image/*" onChange={handleImageFile} style={{ display: "none" }} id="img-upload" ref={fileInputRef} />
                   <label htmlFor="img-upload" style={{
                     display: "inline-block", padding: "9px 20px", borderRadius: 10,
-                    background: uploading ? "#ccc" : "#e91e8c", color: "#fff", cursor: uploading ? "not-allowed" : "pointer", fontWeight: 600, fontSize: 13,
-                    marginTop: imgPreview ? 12 : 0, pointerEvents: uploading ? "none" : "auto",
-                  }}>{uploading ? "⏳ Mengupload..." : imgPreview ? "Ganti Foto" : "Pilih Foto"}</label>
+                    background: "#e91e8c", color: "#fff", cursor: "pointer", fontWeight: 600, fontSize: 13,
+                    marginTop: imgPreview ? 12 : 0,
+                  }}>{imgPreview ? "Ganti Foto" : "Pilih Foto"}</label>
                 </div>
                 <div style={{ marginTop: 10 }}>
                   <input name="imageUrl" value={!imgPreview.startsWith("blob:") ? form.imageUrl : ""} onChange={(e) => { setImgPreview(e.target.value); setForm((f) => ({ ...f, imageUrl: e.target.value })); }} placeholder="Atau masukkan URL gambar..." style={{ ...inputStyle, fontSize: 13 }}
@@ -465,7 +427,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ width: 44, height: 44, borderRadius: 14, background: "linear-gradient(135deg, #f48fb1, #e91e8c)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🎂</div>
             <div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 700, color: "#fff" }}>Frosty Cake</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 700, color: "#fff" }}>Bebe Cakes</div>
               <div style={{ fontSize: 10, color: "#f48fb1", letterSpacing: 1.5, textTransform: "uppercase" }}>Admin Panel</div>
             </div>
           </div>
