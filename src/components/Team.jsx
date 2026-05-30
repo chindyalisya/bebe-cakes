@@ -10,7 +10,7 @@ function Team() {
         <div className={`fade-up ${inView ? "visible" : ""}`} style={{ textAlign: "center", marginBottom: 60 }}>
           <span className="section-tag">Our Team</span>
           <h2 className="section-title" style={{ marginTop: 8, marginBottom: 16 }}>The Artists Behind <em style={{ fontStyle: "italic", color: "#e91e8c" }}>the Magic</em></h2>
-          <p className="section-sub" style={{ margin: "0 auto" }}>Meet our passionate team of pastry chefs and cake designers who make every creation extraordinary.</p>
+          <p className="section-sub" style={{ margin: "0 auto" }}>Kenali tim kami yang penuh semangat dan kreativitas dalam menghadirkan kue serta dessert istimewa yang cantik, lezat, dan berkesan.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 24 }}>
           {TEAM.map((member, i) => (

@@ -68,7 +68,7 @@ function Menu({ onAddToCart, wishlist, onToggleWishlist }) {
                   padding: "16px", opacity: 0, transform: "translateY(8px)",
                   transition: "all 0.3s ease", cursor: "pointer", display: "flex", justifyContent: "center",
                 }}>
-                  <span style={{ color: "#fff", fontWeight: 600, fontSize: 14, letterSpacing: 0.5 }}>+ Add to Cart</span>
+                  <span style={{ color: "#fff", fontWeight: 600, fontSize: 14, letterSpacing: 0.5 }}>+ Tambah ke keranjang</span>
                 </div>
               </div>
               {/* Info */}
@@ -79,7 +79,7 @@ function Menu({ onAddToCart, wishlist, onToggleWishlist }) {
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#e91e8c" }}>{product.price}</span>
                   <button className="btn-primary" onClick={() => onAddToCart(product)} style={{ padding: "9px 20px", borderRadius: 12, fontSize: 13 }}>
-                    Order
+                    Pesan
                   </button>
                 </div>
               </div>

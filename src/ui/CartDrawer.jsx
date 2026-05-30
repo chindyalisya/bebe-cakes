@@ -8,9 +8,9 @@ const PAYMENT_METHODS = [
 ];
 
 const BANK_ACCOUNTS = [
-  { bank: "BCA", no: "1234 5678 9012", name: "Frosty Cake Bakery" },
-  { bank: "BNI", no: "9876 5432 1000", name: "Frosty Cake Bakery" },
-  { bank: "Mandiri", no: "1170 0087 6543 21", name: "Frosty Cake Bakery" },
+  { bank: "BCA", no: "1234 5678 9012", name: "Bebe Cakes Bakery" },
+  { bank: "BNI", no: "9876 5432 1000", name: "Bebe Cakes Bakery" },
+  { bank: "Mandiri", no: "1170 0087 6543 21", name: "Bebe Cakes Bakery" },
 ];
 
 // step: "cart" → "custom-order" → "payment" → "confirm"

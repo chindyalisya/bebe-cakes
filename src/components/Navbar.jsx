@@ -65,7 +65,7 @@ function Navbar({ cartCount, onCartOpen, onTrackOrder }) {
               cursor: "pointer", display: "flex", alignItems: "center", gap: 8, fontSize: 15, color: "#c2185b", fontWeight: 600,
               transition: "all 0.3s ease",
             }}>
-              🛒 <span className="hide-mobile">Cart</span>
+              🛒 <span className="hide-mobile">Keranjang</span>
               {cartCount > 0 && (
                 <span style={{
                   position: "absolute", top: -6, right: -6, background: "#e91e8c", color: "#fff",
@@ -83,7 +83,7 @@ function Navbar({ cartCount, onCartOpen, onTrackOrder }) {
               📦 Lacak Pesanan
             </button>
             <button onClick={() => scrollTo("contact")} className="btn-primary hide-mobile" style={{ padding: "10px 24px", borderRadius: 12, fontSize: 14 }}>
-              Order Now
+              Pesan Sekarang
             </button>
             {/* Hamburger */}
             <button onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", background: "none", border: "none", cursor: "pointer", fontSize: 24 }} className="show-mobile">

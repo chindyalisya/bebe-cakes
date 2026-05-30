@@ -12,7 +12,7 @@ function Gallery() {
         <div className={`fade-up ${inView ? "visible" : ""}`} style={{ textAlign: "center", marginBottom: 60 }}>
           <span className="section-tag">Gallery</span>
           <h2 className="section-title" style={{ marginTop: 8, marginBottom: 16 }}>A Feast for the <em style={{ fontStyle: "italic", color: "#e91e8c" }}>Eyes</em></h2>
-          <p className="section-sub" style={{ margin: "0 auto" }}>Browse our portfolio of custom cakes, pastry art, and seasonal creations.</p>
+          <p className="section-sub" style={{ margin: "0 auto" }}>Temukan berbagai kreasi Babe Cakes mulai dari kue ulang tahun, kue pernikahan, pastry favorit, hingga menu spesial yang dibuat untuk momen tak terlupakan.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
           {GALLERY.map((item, i) => (

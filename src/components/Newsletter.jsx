@@ -9,9 +9,9 @@ function Newsletter() {
       <div style={{ maxWidth: 640, margin: "0 auto" }}>
         <div style={{ fontSize: 40, marginBottom: 16 }}>🍰</div>
         <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", color: "#fff", marginBottom: 12 }}>Stay Sweet with Us</h2>
-        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", marginBottom: 32 }}>Subscribe for exclusive recipes, seasonal specials, and 10% off your first order.</p>
+        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", marginBottom: 32 }}>Mau update menu terbaru dan promo menarik? Yuk berlangganan sekarang dan nikmati diskon 10% untuk order pertamamu!</p>
         {done ? (
-          <div style={{ background: "rgba(255,255,255,0.2)", borderRadius: 16, padding: "16px 32px", color: "#fff", fontWeight: 600, fontSize: 16 }}>🎉 Thank you! Check your inbox for your discount code.</div>
+          <div style={{ background: "rgba(255,255,255,0.2)", borderRadius: 16, padding: "16px 32px", color: "#fff", fontWeight: 600, fontSize: 16 }}>🎉 Terima kasih! Check inbox untuk kode diskon anda.</div>
         ) : (
           <div style={{ display: "flex", gap: 12, maxWidth: 460, margin: "0 auto", flexWrap: "wrap", justifyContent: "center" }}>
             <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" type="email" style={{ flex: "1 1 240px", padding: "14px 20px", borderRadius: 12, border: "none", fontSize: 15, background: "rgba(255,255,255,0.95)" }} />

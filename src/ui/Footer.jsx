@@ -14,7 +14,7 @@ function Footer() {
                 <div style={{ fontSize: 10, color: "#f48fb1", letterSpacing: 2, textTransform: "uppercase" }}>Artisan Bakery</div>
               </div>
             </div>
-            <p style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 24, color: "#a07070" }}>Crafting extraordinary cakes and pastries with love, precision, and the finest natural ingredients since 2017.</p>
+            <p style={{ fontSize: 14, lineHeight: 1.8, marginBottom: 24, color: "#a07070" }}>Merajut kelezatan kue dan pastri istimewa dengan cinta, ketelitian, dan bahan alami terbaik sejak 2026.</p>
             <div style={{ display: "flex", gap: 10 }}>
               {["📸", "🎵", "💬", "👍"].map((icon, i) => (
                 <div key={i} style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, cursor: "pointer", transition: "all 0.3s ease" }}>{icon}</div>
@@ -58,7 +58,7 @@ function Footer() {
 
         {/* Bottom */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <div style={{ fontSize: 13, color: "#6a3a3a" }}>© 2025 Bebe Cakes Bakery. All rights reserved.</div>
+          <div style={{ fontSize: 13, color: "#6a3a3a" }}>2025 Bebe Cakes Bakery. All rights reserved.</div>
           <div style={{ fontSize: 13, color: "#6a3a3a" }}>Made with ❤️ & 🧁 in Semarang</div>
         </div>
       </div>

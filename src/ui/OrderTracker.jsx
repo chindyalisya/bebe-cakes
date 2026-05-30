@@ -3,7 +3,7 @@ import { useProducts } from "../context/ProductsContext";
 
 const ORDER_STATUSES = [
   { id: "new",        label: "Pesanan Diterima",  desc: "Pesananmu sudah kami terima",           icon: "🆕", color: "#2196f3" },
-  { id: "processing", label: "Sedang Diproses",   desc: "Tim kami sedang mempersiapkan pesananmu", icon: "👨‍🍳", color: "#ff9800" },
+  { id: "processing", label: "Proses",   desc: "Tim kami sedang mempersiapkan pesananmu", icon: "👨‍🍳", color: "#ff9800" },
   { id: "ready",      label: "Siap Diambil",      desc: "Pesananmu sudah siap!",                 icon: "📦", color: "#9c27b0" },
   { id: "done",       label: "Selesai",           desc: "Pesanan telah diserahkan. Terima kasih!",icon: "✅", color: "#4caf50" },
   { id: "cancelled",  label: "Dibatalkan",        desc: "Pesanan ini telah dibatalkan",           icon: "❌", color: "#f44336" },

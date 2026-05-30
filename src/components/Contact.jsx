@@ -29,12 +29,12 @@ function Contact() {
         <div className={`fade-up ${inView ? "visible" : ""}`}>
           <span className="section-tag">Contact Us</span>
           <h2 className="section-title" style={{ marginTop: 8, marginBottom: 20 }}>Let's Create Something <em style={{ fontStyle: "italic", color: "#e91e8c" }}>Beautiful</em></h2>
-          <p className="section-sub" style={{ marginBottom: 40 }}>Have a custom order in mind? We'd love to bring your cake dreams to life. Reach out and let's chat!</p>
+          <p className="section-sub" style={{ marginBottom: 40 }}>Punya konsep atau tema tertentu untuk acara spesialmu? Ceritakan kepada kami, dan biarkan Babe Cakes menghadirkan kue yang sesuai dengan impianmu. Hubungi kami dan mari diskusikan bersama!</p>
           {[
-            { icon: "📍", label: "Visit Us", val: "Jl. Candi Golf No. 88, Semarang, Indonesia" },
-            { icon: "📞", label: "Call Us", val: "+62 821 3321 3974" },
-            { icon: "✉️", label: "Email Us", val: "hello@bebecakes.id" },
-            { icon: "🕐", label: "Open Hours", val: "Mon–Sat: 08:00–20:00 | Sun: 09:00–17:00" },
+            { icon: "📍", label: "Kunjungi Kami", val: "Jl. Candi Golf No. 88, Semarang, Indonesia" },
+            { icon: "📞", label: "Hubungi Kami", val: "+62 821 3321 3974" },
+            { icon: "✉️", label: "Email Kami", val: "hello@bebecakes.id" },
+            { icon: "🕐", label: "Jam Operasional", val: "Senin–Sabtu: 08:00–20:00 | Minggu: 09:00–17:00" },
           ].map((info, i) => (
             <div key={i} style={{ display: "flex", gap: 16, marginBottom: 24, alignItems: "flex-start" }}>
               <div style={{ width: 48, height: 48, borderRadius: 14, background: "#fff0f3", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>{info.icon}</div>
@@ -62,26 +62,26 @@ function Contact() {
             <div style={{ textAlign: "center", padding: "40px 0" }}>
               <div style={{ fontSize: 72, marginBottom: 20, animation: "bounce-in 0.5s ease" }}>🎉</div>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: "#1a0a0a", marginBottom: 12 }}>Order Sent!</h3>
-              <p style={{ color: "#8a5c5c", marginBottom: 28 }}>Thank you, {form.name}! We'll get back to you within 2 hours. Can't wait to bake for you!</p>
-              <button className="btn-primary" onClick={() => setSent(false)} style={{ padding: "14px 32px", borderRadius: 12, fontSize: 15 }}>Send Another →</button>
+              <p style={{ color: "#8a5c5c", marginBottom: 28 }}>Terima kasih, {form.name}! Kami akan menghubungi Anda kembali dalam waktu 2 jam. Can't wait to bake for you!</p>
+              <button className="btn-primary" onClick={() => setSent(false)} style={{ padding: "14px 32px", borderRadius: 12, fontSize: 15 }}>Kirim Lainnya →</button>
             </div>
           ) : (
             <>
               <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: "#1a0a0a", marginBottom: 28 }}>Custom Order Request</h3>
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                  <input name="name" value={form.name} onChange={handle} placeholder="Your Name *" style={inputStyle} required />
-                  <input name="phone" value={form.phone} onChange={handle} placeholder="Phone Number" style={inputStyle} />
+                  <input name="name" value={form.name} onChange={handle} placeholder="Nama Anda*" style={inputStyle} required />
+                  <input name="phone" value={form.phone} onChange={handle} placeholder="No.Telephone" style={inputStyle} />
                 </div>
-                <input name="email" value={form.email} onChange={handle} placeholder="Email Address *" type="email" style={inputStyle} required />
+                <input name="email" value={form.email} onChange={handle} placeholder="Alamat Email *" type="email" style={inputStyle} required />
                 <select name="occasion" value={form.occasion} onChange={handle} style={inputStyle}>
                   {["Birthday", "Wedding", "Anniversary", "Corporate Event", "Baby Shower", "Other"].map((o) => <option key={o}>{o}</option>)}
                 </select>
-                <textarea name="message" value={form.message} onChange={handle} placeholder="Tell us about your dream cake — flavors, design, size, date needed... *" rows={5} style={{ ...inputStyle, resize: "vertical" }} required />
+                <textarea name="message" value={form.message} onChange={handle} placeholder="ceritakan tentang kue impianmu, design, rasa,  ukuran, dan tanggal yang kamu butuhkan *" rows={5} style={{ ...inputStyle, resize: "vertical" }} required />
                 <button type="submit" disabled={loading} className="btn-primary" style={{ padding: "16px", borderRadius: 14, fontSize: 16, marginTop: 8, display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
                   {loading ? (
                     <><span style={{ display: "inline-block", width: 18, height: 18, borderRadius: "50%", border: "2px solid rgba(255,255,255,0.4)", borderTopColor: "#fff", animation: "spin-slow 0.7s linear infinite" }} /> Sending...</>
-                  ) : "Send Custom Order Request 🎂"}
+                  ) : "Kirim Custom Order Request 🎂"}
                 </button>
               </form>
             </>
