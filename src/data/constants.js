@@ -58,14 +58,14 @@ export const TESTIMONIALS = [
 ];
 
 export const TEAM = [
-  { name: "Chef Amara Lestari", role: "Head Pastry Chef", exp: "12 years • Le Cordon Bleu Paris", color: "#f9c5d1", initial: "AL" },
-  { name: "Rizky Purnomo", role: "Cake Designer", exp: "8 years • Award-winning artist", color: "#ddb0e8", initial: "RP" },
-  { name: "Sari Dewantari", role: "Flavor Specialist", exp: "6 years • Natural ingredients expert", color: "#b5e4c0", initial: "SD" },
-  { name: "Hendra Wijaya", role: "Delivery & Quality", exp: "5 years • Freshness guaranteed", color: "#ffe0b2", initial: "HW" },
+  { name: "Chef Chindy Alieisyia", role: "Head Pastry Chef", exp: "12 years • Le Cordon Bleu Paris", color: "#f9c5d1", initial: "CA" },
+  { name: "Farida Auliya", role: "Cake Designer", exp: "8 years • Award-winning artist", color: "#ddb0e8", initial: "FA" },
+  { name: "Maulidia Suhesti", role: "Flavor Specialist", exp: "6 years • Natural ingredients expert", color: "#b5e4c0", initial: "MS" },
+  { name: "Queenara Audrey", role: "Delivery & Quality", exp: "5 years • Freshness guaranteed", color: "#ffe0b2", initial: "QA" },
 ];
 
 export const GALLERY = [
-  { emoji: "🎂", color: "#f9c5d1", label: "Wedding Tiers" },
+   { image: "https://ibb.co.com/zhXHbBs2", label: "Wedding Tiers" },
   { emoji: "🌸", color: "#f7b3c8", label: "Floral Collection" },
   { emoji: "🧁", color: "#ddb0e8", label: "Cupcake Art" },
   { emoji: "🍰", color: "#ffe0b2", label: "Signature Slices" },
