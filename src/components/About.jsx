@@ -3,10 +3,10 @@ import { useInView } from "../hooks/useInView";
 function About() {
   const [ref, inView] = useInView();
   const features = [
-    { icon: "🌿", title: "100% Natural", desc: "No artificial preservatives or flavors. Only the finest natural ingredients." },
-    { icon: "👩‍🍳", title: "Expert Artisans", desc: "Our Le Cordon Bleu trained chefs bring decades of patisserie expertise." },
-    { icon: "🎨", title: "Custom Designs", desc: "Every cake is a unique artwork tailored to your vision and occasion." },
-    { icon: "🚚", title: "Same-Day Delivery", desc: "Fresh delivery within Semarang & surrounding areas. Order by 12 PM." },
+    { icon: "⭐", title: "Best Selling Bakery", desc: "Berhasil menghadirkan berbagai menu favorit yang menjadi pilihan pelanggan setiap harinya." },
+    { icon: "👩‍🍳", title: "Dibuat oleh Baker Berpengalamans", desc: "Setiap produk dibuat dengan penuh ketelitian dan kreativitas untuk menghadirkan cita rasa terbaik dalam setiap sajian." },
+    { icon: "🌿 ", title: "Bahan Berkualitas", desc: "Kami menggunakan bahan-bahan pilihan tanpa pengawet buatan, sehingga setiap kue dan dessert tetap segar, lezat, dan aman dinikmati." },
+    { icon: "🚚", title: "Pengiriman Cepat & Aman", desc: "Pesanan Anda akan dipersiapkan dengan baik dan dikirim dalam kondisi terbaik agar tetap segar saat sampai di tangan Anda." },
   ];
 
   return (
@@ -21,7 +21,7 @@ function About() {
           }}>
             <div style={{ fontSize: 120, marginBottom: 20, filter: "drop-shadow(0 10px 20px rgba(233,30,140,0.2))" }}>🎂</div>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontStyle: "italic", color: "#c2185b" }}>
-              "Baking happiness,<br />one slice at a time"
+              "Baked Fresh For You,<br />Every Single Morning"
             </div>
           </div>
           {/* Floating card */}
@@ -54,11 +54,10 @@ function About() {
               A Passion Born<br /><em style={{ fontStyle: "italic", color: "#e91e8c" }}>in the Kitchen</em>
             </h2>
             <p className="section-sub" style={{ marginBottom: 20 }}>
-              Founded in 2026 by Chef Chindy Alieisyia, Bebe Cakes began as a small home bakery with one mission: to bring genuine joy through extraordinary pastry craftsmanship.
+             Berdiri sejak tahun 2026, Babe Cakes memulai perjalanan sebagai toko kue kecil yang percaya bahwa setiap perayaan layak ditemani oleh sajian yang istimewa.
             </p>
             <p className="section-sub" style={{ marginBottom: 40 }}>
-              Today, we are Semarang most beloved artisan bakery — combining classical French techniques with bold, local-inspired flavors that celebrate Indonesia's rich culinary heritage.
-            </p>
+            Mulai dari kue ulang tahun, kue pernikahan, hingga aneka pastry dan dessert, setiap produk kami dibuat dengan bahan pilihan dan perhatian pada setiap detail untuk menciptakan kenangan manis di setiap momen spesial Anda.            </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {features.map((f, i) => (

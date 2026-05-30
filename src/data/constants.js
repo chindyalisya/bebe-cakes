@@ -3,8 +3,8 @@ export const NAV_LINKS = ["Home", "About", "Menu", "Gallery", "Testimonials", "T
 export const HERO_SLIDES = [
   {
     tag: "Freshly Baked Daily",
-    title: "Artisan Cakes\nCrafted with Love",
-    desc: "Handcrafted layer cakes, custom wedding creations, and indulgent pastries made from the finest ingredients.",
+    title: "Kue dan Dessert Pilihan\nDibuat dengan Penuh Cinta",
+    desc: "Menghadirkan kue ulang tahun, kue pernikahan, dan berbagai pastry lezat yang dibuat dari bahan berkualitas untuk menciptakan momen yang tak terlupakan.",
     cta: "Explore Menu",
     accent: "#f9c5d1",
     bg: "linear-gradient(135deg, #fff5f7 0%, #fce4ec 60%, #f8bbd0 100%)",
@@ -12,8 +12,8 @@ export const HERO_SLIDES = [
   },
   {
     tag: "Custom Orders Welcome",
-    title: "Your Dream Cake\nMade Reality",
-    desc: "From elegant wedding tiers to whimsical birthday creations — every cake tells your unique story.",
+    title: "Kue Impian Anda\nKini Menjadi Nyata",
+    desc: "Setiap desain dibuat sesuai keinginan Anda, menghadirkan kue yang tidak hanya cantik, tetapi juga penuh makna dan kenangan.",
     cta: "Order Now",
     accent: "#f7b3c8",
     bg: "linear-gradient(135deg, #fdf4f7 0%, #fce4ec 60%, #f48fb1 40%)",
@@ -21,8 +21,8 @@ export const HERO_SLIDES = [
   },
   {
     tag: "Seasonal Specials",
-    title: "Limited Edition\nFlavors Await",
-    desc: "Discover our rotating seasonal menu — from lavender honey to matcha white chocolate masterpieces.",
+    title: "Menu Spesial Babe Cakes\nHanya Hadir untuk Waktu Terbatas",
+    desc: "Temukan menu favorit pelanggan seperti Sweet Cherry Cake dan Pistachio Croissant sebelum periode spesial ini berakhir.",
     cta: "See Specials",
     accent: "#ddb0e8",
     bg: "linear-gradient(135deg, #fdf0ff 0%, #f3e5f5 60%, #e1bee7 100%)",
@@ -51,10 +51,10 @@ export const STATS = [
 ];
 
 export const TESTIMONIALS = [
-  { name: "Anindita Wirawan", role: "Bride, March 2025", text: "Our wedding cake was absolutely breathtaking. Three tiers of perfection — every guest asked who made it. Worth every penny!", stars: 5, initial: "AW" },
-  { name: "Budi Santoso", role: "Birthday Party Host", text: "Ordered a custom unicorn cake for my daughter's 7th birthday. She was in tears of joy! The detail work is extraordinary.", stars: 5, initial: "BS" },
-  { name: "Citra Maharani", role: "Regular Customer", text: "I come here every Sunday for their seasonal cupcakes. The lavender honey one is genuinely life-changing. A true Yogyakarta gem.", stars: 5, initial: "CM" },
-  { name: "Dimas Prasetya", role: "Corporate Client", text: "Ordered 200 boxes of pastries for our office event. Delivered on time, beautifully packaged, and every single one was perfect.", stars: 5, initial: "DP" },
+  { name: "Zelin Ayra", role: "Birthday Celebration, Mei 2025", text: "Ihhh suka banget langganan di sini 😭💗 Cream-nya lumer, buahnya banyak, dan semuanya fresh banget. Pokoknya nggak pernah nyesel kalau order di Babe Cakes!", stars: 5, initial: "AW" },
+  { name: "Jeane Odinne", role: "Corporate Event, Maret 2026", text: "Pesen dessert buat acara kantor dan literally habis dengan cepat 😭🙏 Semua pada nanya belinya di mana karena seenak itu. Teksturnya lembut, manisnya pas, dan tampilannya juga super aesthetic, lovee banget sama Babe Cakes 💖", stars: 5, initial: "BS" },
+  { name: "Elora Arvelyna", role: "Bride, February 2026", text: "AKU OBSESSED 😩💖 Kuenya cantik banget, bahkan lebih bagus dari foto yang dikirim. Pas datang langsung jadi pusat perhatian, temanya menyatu dan bener-bener cantikkk. Rasanya juga enak parah dan para tamu suka ><", stars: 5, initial: "CM" },
+  { name: "Kaina Semitha", role: "Customer, April 2026", text: "Babe Cakes tuh definisi cake yang CANTIK DAN ENAKKK. Soalnya kadang ada yang tampilannya bagus doang, tapi di sini dua-duanya dapet 😭🫶 Kuenya lembut, cream-nya ringan, dan dekorasinya selalu detail.", stars: 5, initial: "DP" },
 ];
 
 export const TEAM = [

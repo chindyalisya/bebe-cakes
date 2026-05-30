@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useProducts } from "../context/ProductsContext";
 import { CATEGORIES } from "../data/constants";
+
+// ── Cloudinary config ── ganti dengan milikmu ──────────────
+const CLOUDINARY_CLOUD_NAME = "GANTI_CLOUD_NAME_KAMU";   // contoh: "dxyz1234"
+const CLOUDINARY_UPLOAD_PRESET = "bebecakes_upload";      // nama preset yang kamu buat
+// ──────────────────────────────────────────────────────────
 
 const EMOJI_OPTIONS = ["🎂","🧁","🍰","🌹","💜","🍓","🍵","🌸","🍋","🏰","🫐","🎉","💍","🍩","🍪","🥐","🍫","🍬","🥧","🎁"];
 const COLOR_OPTIONS = ["#f9c5d1","#ddb0e8","#ffb3ba","#b5e4c0","#f7b3c8","#ffe0b2","#f5d0a9","#c8b4e8","#ffd6e0","#d4f1f9"];
@@ -51,23 +56,53 @@ function ProductModal({ product, onSave, onClose }) {
   const [form, setForm] = useState(product || EMPTY_PRODUCT);
   const [imgPreview, setImgPreview] = useState(product?.imageUrl || "");
   const [tab, setTab] = useState("info");
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
 
-  const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handle = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleImageFile = (e) => {
+  const handleImageFile = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      setImgPreview(ev.target.result);
-      setForm((f) => ({ ...f, imageUrl: ev.target.result }));
-    };
-    reader.readAsDataURL(file);
+    e.target.value = ""; // reset agar file sama bisa dipilih lagi
+
+    // Tampilkan preview lokal dulu (cepat)
+    const localUrl = URL.createObjectURL(file);
+    setImgPreview(localUrl);
+    setUploading(true);
+
+    try {
+      // Upload ke Cloudinary
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+        { method: "POST", body: formData }
+      );
+      const data = await res.json();
+
+      if (data.secure_url) {
+        setImgPreview(data.secure_url);
+        setForm((f) => ({ ...f, imageUrl: data.secure_url }));
+      } else {
+        throw new Error(data.error?.message || "Upload gagal");
+      }
+    } catch (err) {
+      console.error("Upload gagal:", err);
+      alert("Upload foto gagal. Pastikan Cloud Name dan Upload Preset sudah benar di kode.");
+      setImgPreview("");
+      setForm((f) => ({ ...f, imageUrl: "" }));
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSave = () => {
     if (!form.name.trim() || !form.price.trim()) return;
-    onSave({ ...form, imageUrl: imgPreview });
+    // Pakai form.imageUrl yang sudah pasti ter-update
+    onSave({ ...form });
   };
 
   const inputStyle = {
@@ -153,7 +188,12 @@ function ProductModal({ product, onSave, onClose }) {
                 <div style={{ border: "2px dashed #f9c5d1", borderRadius: 16, padding: 20, textAlign: "center", background: "#fff5f7", position: "relative" }}>
                   {imgPreview ? (
                     <div style={{ position: "relative", display: "inline-block" }}>
-                      <img src={imgPreview} alt="preview" style={{ maxHeight: 160, maxWidth: "100%", borderRadius: 12, objectFit: "cover" }} />
+                      <img src={imgPreview} alt="preview" style={{ maxHeight: 160, maxWidth: "100%", borderRadius: 12, objectFit: "cover", opacity: uploading ? 0.5 : 1 }} />
+                      {uploading && (
+                        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 12, background: "rgba(255,255,255,0.6)" }}>
+                          <span style={{ fontSize: 13, color: "#e91e8c", fontWeight: 700 }}>⏳ Mengupload...</span>
+                        </div>
+                      )}
                       <button onClick={() => { setImgPreview(""); setForm((f) => ({ ...f, imageUrl: "" })); }} style={{
                         position: "absolute", top: -10, right: -10, background: "#e91e8c", border: "none",
                         borderRadius: "50%", width: 28, height: 28, cursor: "pointer", color: "#fff", fontWeight: 700, fontSize: 14,
@@ -165,15 +205,15 @@ function ProductModal({ product, onSave, onClose }) {
                       <p style={{ fontSize: 13, color: "#8a5c5c", marginBottom: 12 }}>Upload foto menu (JPG, PNG, WebP)</p>
                     </>
                   )}
-                  <input type="file" accept="image/*" onChange={handleImageFile} style={{ display: "none" }} id="img-upload" />
+                  <input type="file" accept="image/*" onChange={handleImageFile} style={{ display: "none" }} id="img-upload" ref={fileInputRef} />
                   <label htmlFor="img-upload" style={{
                     display: "inline-block", padding: "9px 20px", borderRadius: 10,
-                    background: "#e91e8c", color: "#fff", cursor: "pointer", fontWeight: 600, fontSize: 13,
-                    marginTop: imgPreview ? 12 : 0,
-                  }}>{imgPreview ? "Ganti Foto" : "Pilih Foto"}</label>
+                    background: uploading ? "#ccc" : "#e91e8c", color: "#fff", cursor: uploading ? "not-allowed" : "pointer", fontWeight: 600, fontSize: 13,
+                    marginTop: imgPreview ? 12 : 0, pointerEvents: uploading ? "none" : "auto",
+                  }}>{uploading ? "⏳ Mengupload..." : imgPreview ? "Ganti Foto" : "Pilih Foto"}</label>
                 </div>
                 <div style={{ marginTop: 10 }}>
-                  <input name="imageUrl" value={imgPreview && !imgPreview.startsWith("data:") ? form.imageUrl : ""} onChange={(e) => { setImgPreview(e.target.value); setForm((f) => ({ ...f, imageUrl: e.target.value })); }} placeholder="Atau masukkan URL gambar..." style={{ ...inputStyle, fontSize: 13 }}
+                  <input name="imageUrl" value={!imgPreview.startsWith("blob:") ? form.imageUrl : ""} onChange={(e) => { setImgPreview(e.target.value); setForm((f) => ({ ...f, imageUrl: e.target.value })); }} placeholder="Atau masukkan URL gambar..." style={{ ...inputStyle, fontSize: 13 }}
                     onFocus={e => e.target.style.borderColor = "#e91e8c"} onBlur={e => e.target.style.borderColor = "#f9c5d1"} />
                 </div>
               </div>
@@ -368,10 +408,21 @@ function AdminDashboard({ onLogout, onViewStore }) {
     return matchStatus && matchSearch;
   });
 
-  const handleSave = (form) => {
-    if (modal.mode === "add") { addProduct(form); showToast("✅ Menu berhasil ditambahkan!"); }
-    else { updateProduct(modal.product.firestoreId, form); showToast("✅ Menu berhasil diperbarui!"); }
-    setModal(null);
+  const handleSave = async (form) => {
+    const { firestoreId, id, ...cleanForm } = form;
+    try {
+      if (modal.mode === "add") {
+        await addProduct(cleanForm);
+        showToast("✅ Menu berhasil ditambahkan!");
+      } else {
+        await updateProduct(modal.product.firestoreId, cleanForm);
+        showToast("✅ Menu berhasil diperbarui!");
+      }
+      setModal(null);
+    } catch (err) {
+      console.error("Gagal simpan produk:", err);
+      showToast("❌ Gagal menyimpan. Cek koneksi internet.");
+    }
   };
 
   const handleDelete = () => {

@@ -16,7 +16,7 @@ function Menu({ onAddToCart, wishlist, onToggleWishlist }) {
         <div className={`fade-up ${inView ? "visible" : ""}`} style={{ textAlign: "center", marginBottom: 60 }}>
           <span className="section-tag">Our Menu</span>
           <h2 className="section-title" style={{ marginTop: 8, marginBottom: 16 }}>Handcrafted with <em style={{ fontStyle: "italic", color: "#e91e8c" }}>Heart</em></h2>
-          <p className="section-sub" style={{ margin: "0 auto 40px" }}>Each creation is made fresh daily using premium ingredients and a whole lot of love.</p>
+          <p className="section-sub" style={{ margin: "0 auto 40px" }}>Kami menghadirkan kue dan dessert segar setiap hari, dibuat dengan bahan berkualitas untuk menciptakan kenangan manis di setiap momen.</p>
 
           {/* Filter pills */}
           <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
