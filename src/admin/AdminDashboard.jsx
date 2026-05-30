@@ -2,7 +2,9 @@ import { useState, useRef } from "react";
 import { useProducts } from "../context/ProductsContext";
 import { CATEGORIES } from "../data/constants";
 
-function compressImage(file, maxPx = 600, quality = 0.7) {
+function compressImage(file, maxPx = 600, quality = 0.72) {
+  // PNG pakai maxPx lebih kecil agar ukuran file tetap di bawah 1MB
+  if (file.type === "image/png") maxPx = 400;
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
@@ -14,8 +16,14 @@ function compressImage(file, maxPx = 600, quality = 0.7) {
       const canvas = document.createElement("canvas");
       canvas.width = w;
       canvas.height = h;
-      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL("image/jpeg", quality));
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, w, h);
+      // Pakai PNG agar transparansi tetap terjaga (cocok dengan warna kartu)
+      const isPng = file.type === "image/png";
+      resolve(isPng
+        ? canvas.toDataURL("image/png")
+        : canvas.toDataURL("image/jpeg", quality)
+      );
     };
     img.onerror = reject;
     img.src = url;
