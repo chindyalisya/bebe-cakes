@@ -65,8 +65,8 @@ export const TEAM = [
 ];
 
 export const GALLERY = [
-   { image: "https://i.ibb.co.com/hxFD5sY3/wedding-tiers.png", label: "Wedding Tiers" },
-  { emoji: "🌸", color: "#f7b3c8", label: "Floral Collection" },
+   { image: "https://i.ibb.co.com/hxFD5sY3/wedding-tiers.png", color: "#f9c5d1", label: "Wedding Tiers" },
+  { image: "https://i.ibb.co.com/VcYtkVFp/choco-girl.jpg",color: "#f7b3c8", label: "Floral Collection" },
   { emoji: "🧁", color: "#ddb0e8", label: "Cupcake Art" },
   { emoji: "🍰", color: "#ffe0b2", label: "Signature Slices" },
   { emoji: "💍", color: "#c8b4e8", label: "Bridal Cakes" },
