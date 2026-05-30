@@ -41,7 +41,7 @@ function About() {
             borderRadius: 20, padding: "12px 20px", color: "#fff",
             boxShadow: "0 8px 24px rgba(233,30,140,0.35)",
           }}>
-            <div style={{ fontWeight: 700, fontSize: 22 }}>8+ Years</div>
+            <div style={{ fontWeight: 700, fontSize: 22 }}>3+ Years</div>
             <div style={{ fontSize: 12, opacity: 0.9 }}>of Excellence</div>
           </div>
         </div>

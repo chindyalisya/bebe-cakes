@@ -1,4 +1,4 @@
-export const NAV_LINKS = ["Beranda", "Tentang Kami", "Menu", "Galeri", "Ulasan", "Tim", "Kontak"];
+export const NAV_LINKS = ["Home", "About", "Menu", "Gallery", "Testimonials", "Team", "Contact"];
 
 export const HERO_SLIDES = [
   {
@@ -59,7 +59,7 @@ export const TESTIMONIALS = [
 
 export const TEAM = [
   { name: "Chef Chindy Alieisyia", role: "Head Pastry Chef", exp: "12 years • Le Cordon Bleu Paris", color: "#f9c5d1", initial: "CA" },
-  { name: "Farida Auliya", role: "Cake Designer", exp: "8 years • Award-winning artist", color: "#ddb0e8", initial: "FA" },
+  { name: "Farida Auliya", role: "Cake Designer", exp: "3 years • Award-winning artist", color: "#ddb0e8", initial: "FA" },
   { name: "Maulidia Suhesti", role: "Flavor Specialist", exp: "6 years • Natural ingredients expert", color: "#b5e4c0", initial: "MS" },
   { name: "Queenara Audrey", role: "Delivery & Quality", exp: "5 years • Freshness guaranteed", color: "#ffe0b2", initial: "QA" },
 ];
