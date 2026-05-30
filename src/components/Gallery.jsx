@@ -26,9 +26,32 @@ function Gallery() {
                 border: active === i ? `3px solid ${item.color}` : "3px solid transparent",
                 transition: "all 0.3s ease",
               }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", flexDirection: "column", gap: 12 }}>
-                <div style={{ fontSize: 80, filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.15))", transition: "transform 0.3s ease", transform: active === i ? "scale(1.15)" : "scale(1)" }}>{item.emoji}</div>
-                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: "#1a0a0a" }}>{item.label}</div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", flexDirection: "column", gap: 12, position: "relative", width: "100%" }}>
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    style={{
+                      position: "absolute", inset: 0, width: "100%", height: "100%",
+                      objectFit: "cover", transition: "transform 0.3s ease",
+                      transform: active === i ? "scale(1.05)" : "scale(1)",
+                    }}
+                  />
+                ) : (
+                  <div style={{ fontSize: 80, filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.15))", transition: "transform 0.3s ease", transform: active === i ? "scale(1.15)" : "scale(1)" }}>{item.emoji}</div>
+                )}
+                {!item.image && (
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, fontWeight: 600, color: "#1a0a0a" }}>{item.label}</div>
+                )}
+                {item.image && (
+                  <div style={{
+                    position: "absolute", bottom: 0, left: 0, right: 0,
+                    background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent)",
+                    padding: "20px 16px 14px",
+                  }}>
+                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 600, color: "#fff" }}>{item.label}</div>
+                  </div>
+                )}
               </div>
               {active === i && (
                 <div style={{ position: "absolute", inset: 0, background: `linear-gradient(135deg, ${item.color}40, transparent)`, display: "flex", alignItems: "flex-end", padding: 20 }}>
