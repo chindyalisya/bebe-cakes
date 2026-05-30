@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { TESTIMONIALS } from "../data/constants";
 import { useInView } from "../hooks/useInView";
 
 function Testimonials() {
   const [ref, inView] = useInView();
-  const [idx, setIdx] = useState(0);
+  
+  // Baris const [idx, setIdx] = useState(0); sudah dihapus di sini
 
   return (
     <section id="testimonials" ref={ref} style={{ padding: "120px 5%", background: "linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%)" }}>

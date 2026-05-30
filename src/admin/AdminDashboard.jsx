@@ -259,7 +259,7 @@ function DeleteConfirm({ product, onConfirm, onClose }) {
 
 // ── Order Detail Modal ─────────────────────────────────────
 function OrderDetailModal({ order, onClose, onUpdateStatus }) {
-  const statusInfo = ORDER_STATUSES.find(s => s.id === order.status);
+  // Baris statusInfo sudah dihapus karena tidak dipakai
   const dateStr = new Date(order.createdAt).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" });
 
   return (

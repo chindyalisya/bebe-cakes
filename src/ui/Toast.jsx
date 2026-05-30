@@ -4,7 +4,7 @@ function Toast({ msg, onDone }) {
   useEffect(() => {
     const t = setTimeout(onDone, 2800);
     return () => clearTimeout(t);
-  }, [msg]);
+  }, [msg, onDone]); // <-- Perbaikan di sini: menambahkan onDone ke dalam array
 
   return msg ? (
     <div style={{

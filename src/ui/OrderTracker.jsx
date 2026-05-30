@@ -4,9 +4,9 @@ import { useProducts } from "../context/ProductsContext";
 const ORDER_STATUSES = [
   { id: "new",        label: "Pesanan Diterima",  desc: "Pesananmu sudah kami terima",           icon: "🆕", color: "#2196f3" },
   { id: "processing", label: "Sedang Diproses",   desc: "Tim kami sedang mempersiapkan pesananmu", icon: "👨‍🍳", color: "#ff9800" },
-  { id: "ready",      label: "Siap Diambil",      desc: "Pesananmu sudah siap!",                  icon: "📦", color: "#9c27b0" },
-  { id: "done",       label: "Selesai",            desc: "Pesanan telah diserahkan. Terima kasih!",icon: "✅", color: "#4caf50" },
-  { id: "cancelled",  label: "Dibatalkan",         desc: "Pesanan ini telah dibatalkan",           icon: "❌", color: "#f44336" },
+  { id: "ready",      label: "Siap Diambil",      desc: "Pesananmu sudah siap!",                 icon: "📦", color: "#9c27b0" },
+  { id: "done",       label: "Selesai",           desc: "Pesanan telah diserahkan. Terima kasih!",icon: "✅", color: "#4caf50" },
+  { id: "cancelled",  label: "Dibatalkan",        desc: "Pesanan ini telah dibatalkan",           icon: "❌", color: "#f44336" },
 ];
 
 const PAY_LABELS = {
@@ -31,7 +31,7 @@ function OrderTracker({ onClose }) {
   };
 
   const order = result && result !== "not-found" ? result : null;
-  const statusIdx = order ? ORDER_STATUSES.findIndex(s => s.id === order.status) : -1;
+  // Baris const statusIdx sudah dihapus di sini
   const statusInfo = order ? ORDER_STATUSES.find(s => s.id === order.status) : null;
   const isCancelled = order?.status === "cancelled";
 

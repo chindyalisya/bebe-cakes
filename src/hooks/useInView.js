@@ -11,7 +11,7 @@ export function useInView(threshold = 0.15) {
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]); // <-- Perbaikan di sini: menambahkan threshold ke dalam array
 
   return [ref, inView];
 }
