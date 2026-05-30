@@ -2,10 +2,25 @@ import { useState, useRef } from "react";
 import { useProducts } from "../context/ProductsContext";
 import { CATEGORIES } from "../data/constants";
 
-// ── Cloudinary config ── ganti dengan milikmu ──────────────
-const CLOUDINARY_CLOUD_NAME = "GANTI_CLOUD_NAME_KAMU";   // contoh: "dxyz1234"
-const CLOUDINARY_UPLOAD_PRESET = "bebecakes_upload";      // nama preset yang kamu buat
-// ──────────────────────────────────────────────────────────
+function compressImage(file, maxPx = 600, quality = 0.7) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = Math.min(1, maxPx / Math.max(img.width, img.height));
+      const w = Math.round(img.width * scale);
+      const h = Math.round(img.height * scale);
+      const canvas = document.createElement("canvas");
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL("image/jpeg", quality));
+    };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
 
 const EMOJI_OPTIONS = ["🎂","🧁","🍰","🌹","💜","🍓","🍵","🌸","🍋","🏰","🫐","🎉","💍","🍩","🍪","🥐","🍫","🍬","🥧","🎁"];
 const COLOR_OPTIONS = ["#f9c5d1","#ddb0e8","#ffb3ba","#b5e4c0","#f7b3c8","#ffe0b2","#f5d0a9","#c8b4e8","#ffd6e0","#d4f1f9"];
@@ -64,36 +79,14 @@ function ProductModal({ product, onSave, onClose }) {
   const handleImageFile = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    e.target.value = ""; // reset agar file sama bisa dipilih lagi
-
-    // Tampilkan preview lokal dulu (cepat)
-    const localUrl = URL.createObjectURL(file);
-    setImgPreview(localUrl);
+    e.target.value = "";
     setUploading(true);
-
     try {
-      // Upload ke Cloudinary
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-
-      const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
-        { method: "POST", body: formData }
-      );
-      const data = await res.json();
-
-      if (data.secure_url) {
-        setImgPreview(data.secure_url);
-        setForm((f) => ({ ...f, imageUrl: data.secure_url }));
-      } else {
-        throw new Error(data.error?.message || "Upload gagal");
-      }
+      const compressed = await compressImage(file);
+      setImgPreview(compressed);
+      setForm((f) => ({ ...f, imageUrl: compressed }));
     } catch (err) {
-      console.error("Upload gagal:", err);
-      alert("Upload foto gagal. Pastikan Cloud Name dan Upload Preset sudah benar di kode.");
-      setImgPreview("");
-      setForm((f) => ({ ...f, imageUrl: "" }));
+      console.error("Kompres gambar gagal:", err);
     } finally {
       setUploading(false);
     }
