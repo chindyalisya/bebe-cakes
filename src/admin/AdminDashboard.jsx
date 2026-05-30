@@ -584,7 +584,8 @@ function AdminDashboard({ onLogout, onViewStore }) {
                 }}>Semua</button>
                 {ORDER_STATUSES.map(s => (
                   <button key={s.id} onClick={() => setOrderStatusFilter(s.id)} style={{
-                    padding: "8px 16px", borderRadius: 24, cursor: "pointer", fontWeight: 600, fontSize: 12,
+                    padding: "8px 16px", borderRadius: 2
+                    , cursor: "pointer", fontWeight: 600, fontSize: 12,
                     background: orderStatusFilter === s.id ? s.bg : "#fff",
                     color: orderStatusFilter === s.id ? s.color : "#8a5c5c",
                     border: orderStatusFilter === s.id ? `1.5px solid ${s.color}` : "1.5px solid transparent",
