@@ -30,21 +30,26 @@ import Footer from "./ui/Footer";
 
 // Inner app that has access to context
 function AppInner() {
-  const { loading } = useProducts();
-
-  if (loading) return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh", fontFamily: "sans-serif", color: "#e91e8c", fontSize: 18 }}>
-      🎂 Memuat data...
-    </div>
-  );
-
-  const { placeOrder } = useProducts();
-  const [page, setPage] = useState("storefront"); // "storefront" | "admin-login" | "admin"
+  // ── SEMUA hooks harus di atas, SEBELUM kondisi apapun ──
+  const { placeOrder, loading } = useProducts();
+  const [page, setPage] = useState("storefront");
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [toast, setToast] = useState("");
   const [orderTrackerOpen, setOrderTrackerOpen] = useState(false);
+
+  // ── Baru boleh return kondisional SETELAH semua hooks ──
+  if (loading) return (
+    <div style={{
+      display: "flex", alignItems: "center", justifyContent: "center",
+      height: "100vh", fontFamily: "'DM Sans', sans-serif",
+      background: "#fff5f7", flexDirection: "column", gap: 16,
+    }}>
+      <div style={{ fontSize: 48 }}>🎂</div>
+      <p style={{ color: "#e91e8c", fontWeight: 600, fontSize: 18 }}>Memuat data...</p>
+    </div>
+  );
 
   const addToCart = (product) => {
     setCart((prev) => {
@@ -83,17 +88,14 @@ function AppInner() {
     <>
       <GlobalStyles />
 
-      {/* ── Admin Login Page ── */}
       {page === "admin-login" && (
         <AdminLogin onLogin={() => setPage("admin")} />
       )}
 
-      {/* ── Admin Dashboard ── */}
       {page === "admin" && (
         <AdminDashboard onLogout={() => setPage("storefront")} onViewStore={() => setPage("storefront")} />
       )}
 
-      {/* ── Storefront ── */}
       {page === "storefront" && (
         <>
           <Navbar cartCount={cartCount} onCartOpen={() => setCartOpen(true)} onTrackOrder={() => setOrderTrackerOpen(true)} />
@@ -121,7 +123,6 @@ function AppInner() {
           <Toast msg={toast} onDone={() => setToast("")} />
           <ScrollTop />
 
-          {/* Tombol Admin (pojok kiri bawah) */}
           <button
             onClick={() => setPage("admin-login")}
             title="Admin Panel"
