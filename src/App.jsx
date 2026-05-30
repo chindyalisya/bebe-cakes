@@ -30,6 +30,14 @@ import Footer from "./ui/Footer";
 
 // Inner app that has access to context
 function AppInner() {
+  const { loading } = useProducts();
+
+  if (loading) return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh", fontFamily: "sans-serif", color: "#e91e8c", fontSize: 18 }}>
+      🎂 Memuat data...
+    </div>
+  );
+
   const { placeOrder } = useProducts();
   const [page, setPage] = useState("storefront"); // "storefront" | "admin-login" | "admin"
   const [cart, setCart] = useState([]);
