@@ -83,7 +83,7 @@ function Navbar({ cartCount, onCartOpen, onTrackOrder }) {
               📦 Lacak Pesanan
             </button>
             <button onClick={() => scrollTo("contact")} className="btn-primary hide-mobile" style={{ padding: "10px 24px", borderRadius: 12, fontSize: 14 }}>
-              Pesan Sekarang
+              Order Now
             </button>
             {/* Hamburger */}
             <button onClick={() => setMenuOpen(!menuOpen)} style={{ display: "none", background: "none", border: "none", cursor: "pointer", fontSize: 24 }} className="show-mobile">
