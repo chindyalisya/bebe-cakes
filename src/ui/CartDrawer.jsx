@@ -139,7 +139,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                   <p style={{ color: "#8a5c5c", fontSize: 15 }}>Keranjang kosong.<br />Tambahkan produk favoritmu!</p>
                 </div>
               ) : cart.map((item) => (
-                <div key={item.id} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: "1px solid #fce4ec" }}>
+                <div key={item.firestoreId || item.id} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: "1px solid #fce4ec" }}>
                   <div style={{ width: 60, height: 60, borderRadius: 12, background: `${item.color}30`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 28, flexShrink: 0, overflow: "hidden" }}>
                     {item.imageUrl ? <img src={item.imageUrl} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : item.emoji}
                   </div>
@@ -147,16 +147,16 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                     <div style={{ fontWeight: 600, fontSize: 14, color: "#1a0a0a", marginBottom: 3 }}>{item.name}</div>
                     <div style={{ fontSize: 14, color: "#e91e8c", marginBottom: 8 }}>{item.price}</div>
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <button onClick={() => onQtyChange(item.id, item.qty - 1)} style={{ width: 28, height: 28, borderRadius: 8, border: "1.5px solid #f9c5d1", background: "none", cursor: "pointer", fontWeight: 700, color: "#e91e8c" }}>−</button>
+                      <button onClick={() => onQtyChange(item.firestoreId || item.id, item.qty - 1)} style={{ width: 28, height: 28, borderRadius: 8, border: "1.5px solid #f9c5d1", background: "none", cursor: "pointer", fontWeight: 700, color: "#e91e8c" }}>−</button>
                       <span style={{ fontWeight: 700, minWidth: 20, textAlign: "center", fontSize: 15 }}>{item.qty}</span>
-                      <button onClick={() => onQtyChange(item.id, item.qty + 1)} style={{ width: 28, height: 28, borderRadius: 8, border: "1.5px solid #f9c5d1", background: "none", cursor: "pointer", fontWeight: 700, color: "#e91e8c" }}>+</button>
+                      <button onClick={() => onQtyChange(item.firestoreId || item.id, item.qty + 1)} style={{ width: 28, height: 28, borderRadius: 8, border: "1.5px solid #f9c5d1", background: "none", cursor: "pointer", fontWeight: 700, color: "#e91e8c" }}>+</button>
                     </div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 14, color: "#1a0a0a", marginBottom: 24 }}>
                       Rp {(parseInt(item.price.replace(/\D/g, "")) * item.qty).toLocaleString("id-ID")}
                     </div>
-                    <button onClick={() => onRemove(item.id)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 16, color: "#f48fb1" }}>🗑</button>
+                    <button onClick={() => onRemove(item.firestoreId || item.id)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 16, color: "#f48fb1" }}>🗑</button>
                   </div>
                 </div>
               ))}
@@ -300,7 +300,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
               <div style={{ background: "#fff", borderRadius: 16, padding: "18px", marginBottom: 16, border: "1px solid #fce4ec" }}>
                 <div style={{ fontWeight: 700, fontSize: 14, color: "#1a0a0a", marginBottom: 12 }}>Ringkasan Pesanan</div>
                 {cart.map(item => (
-                  <div key={item.id} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, fontSize: 14 }}>
+                  <div key={item.firestoreId || item.id} style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, fontSize: 14 }}>
                     <span style={{ color: "#5a3030" }}>{item.name} <span style={{ color: "#aaa" }}>×{item.qty}</span></span>
                     <span style={{ fontWeight: 600, color: "#1a0a0a" }}>Rp {(parseInt(item.price.replace(/\D/g, "")) * item.qty).toLocaleString("id-ID")}</span>
                   </div>

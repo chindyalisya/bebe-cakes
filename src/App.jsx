@@ -52,19 +52,20 @@ function AppInner() {
   );
 
   const addToCart = (product) => {
+    const pid = product.firestoreId || product.id;
     setCart((prev) => {
-      const existing = prev.find((p) => p.id === product.id);
-      if (existing) return prev.map((p) => p.id === product.id ? { ...p, qty: p.qty + 1 } : p);
+      const existing = prev.find((p) => (p.firestoreId || p.id) === pid);
+      if (existing) return prev.map((p) => (p.firestoreId || p.id) === pid ? { ...p, qty: p.qty + 1 } : p);
       return [...prev, { ...product, qty: 1 }];
     });
     setToast(`🎂 ${product.name} ditambahkan ke keranjang!`);
   };
 
-  const removeFromCart = (id) => setCart((prev) => prev.filter((p) => p.id !== id));
+  const removeFromCart = (id) => setCart((prev) => prev.filter((p) => (p.firestoreId || p.id) !== id));
 
   const changeQty = (id, qty) => {
     if (qty < 1) { removeFromCart(id); return; }
-    setCart((prev) => prev.map((p) => p.id === id ? { ...p, qty } : p));
+    setCart((prev) => prev.map((p) => (p.firestoreId || p.id) === id ? { ...p, qty } : p));
   };
 
   const clearCart = () => setCart([]);
