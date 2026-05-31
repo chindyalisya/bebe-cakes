@@ -171,7 +171,7 @@ function OrderTracker({ onClose }) {
               </div>
 
               <div style={{ textAlign: "center", fontSize: 12, color: "#aaa", paddingBottom: 4 }}>
-                Ada pertanyaan? Hubungi kami via WhatsApp <strong>+62 274 555 0123</strong>
+                Ada pertanyaan? Hubungi kami via WhatsApp <strong>+62 821 3321 3974</strong>
               </div>
             </div>
           )}

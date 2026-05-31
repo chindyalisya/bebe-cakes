@@ -3,7 +3,7 @@ import { useState } from "react";
 const PAYMENT_METHODS = [
   { id: "transfer", icon: "🏦", label: "Transfer Bank", detail: "BCA · BNI · Mandiri · BRI" },
   { id: "qris", icon: "📲", label: "QRIS", detail: "GoPay · OVO · Dana · ShopeePay" },
-  { id: "cod", icon: "🚚", label: "Bayar di Tempat", detail: "Hanya untuk area Yogyakarta" },
+  { id: "cod", icon: "🚚", label: "Bayar di Tempat", detail: "Hanya untuk area Semarang" },
   { id: "cc", icon: "💳", label: "Kartu Kredit/Debit", detail: "Visa · Mastercard · JCB" },
 ];
 
@@ -329,7 +329,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                       </div>
                       <div style={{ fontSize: 12, color: "#c2185b", marginTop: 8, fontWeight: 600 }}>Nominal: Rp {total.toLocaleString("id-ID")}</div>
                     </div>
-                    <p style={{ fontSize: 12, color: "#8a5c5c", marginTop: 10 }}>Kirim bukti transfer ke WhatsApp <strong>+62 274 555 0123</strong> untuk konfirmasi pesanan.</p>
+                    <p style={{ fontSize: 12, color: "#8a5c5c", marginTop: 10 }}>Kirim bukti transfer ke WhatsApp <strong>+62 821 3321 3974</strong> untuk konfirmasi pesanan.</p>
                   </div>
                 )}
                 {payMethod === "qris" && (
@@ -346,7 +346,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                   <div style={{ fontSize: 14, color: "#5a3030", lineHeight: 1.7 }}>
                     <p>✅ Pesanan akan <strong>disiapkan</strong> setelah konfirmasi.</p>
                     <p style={{ marginTop: 8 }}>💰 Siapkan uang pas <strong>Rp {total.toLocaleString("id-ID")}</strong> saat kurir tiba.</p>
-                    <p style={{ marginTop: 8, fontSize: 12, color: "#8a5c5c" }}>*Layanan COD tersedia di area Yogyakarta & sekitarnya dalam radius 15 km.</p>
+                    <p style={{ marginTop: 8, fontSize: 12, color: "#8a5c5c" }}>*Layanan COD tersedia di area Semarang & sekitarnya dalam radius 15 km.</p>
                   </div>
                 )}
                 {payMethod === "cc" && (

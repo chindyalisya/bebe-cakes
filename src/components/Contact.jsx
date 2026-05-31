@@ -71,7 +71,7 @@ function Contact() {
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   <input name="name" value={form.name} onChange={handle} placeholder="Nama Anda*" style={inputStyle} required />
-                  <input name="phone" value={form.phone} onChange={handle} placeholder="No.Telephone" style={inputStyle} />
+                  <input name="phone" value={form.phone} onChange={handle} placeholder="No.Telephone*" style={inputStyle} />
                 </div>
                 <input name="email" value={form.email} onChange={handle} placeholder="Alamat Email *" type="email" style={inputStyle} required />
                 <select name="occasion" value={form.occasion} onChange={handle} style={inputStyle}>

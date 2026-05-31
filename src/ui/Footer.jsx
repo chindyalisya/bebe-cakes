@@ -47,7 +47,7 @@ function Footer() {
               { icon: "📍", text: "Jl. Candi Golf No. 88, Semarang" },
               { icon: "📞", text: "+62 821 3321 3974" },
               { icon: "✉️", text: "hello@bebecakes.id" },
-              { icon: "🕐", text: "Mon–Sat: 08:00–20:00" },
+              { icon: "🕐", text: "Senin–Sabtu: 08:00–20:00" },
             ].map((info, i) => (
               <div key={i} style={{ display: "flex", gap: 10, padding: "6px 0", fontSize: 14, color: "#a07070" }}>
                 <span>{info.icon}</span><span>{info.text}</span>

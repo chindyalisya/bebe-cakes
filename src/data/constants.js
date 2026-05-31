@@ -3,7 +3,7 @@ export const NAV_LINKS = ["Home", "About", "Menu", "Gallery", "Testimonials", "T
 export const HERO_SLIDES = [
   {
     tag: "Freshly Baked Daily",
-    title: "Kue dan Dessert Pilihan\nDibuat dengan Penuh Cinta",
+    title: "Kue dan Dessert\nDibuat dengan Penuh Cinta",
     desc: "Menghadirkan kue ulang tahun, kue pernikahan, dan berbagai pastry lezat yang dibuat dari bahan berkualitas untuk menciptakan momen yang tak terlupakan.",
     cta: "Explore Menu",
     accent: "#f9c5d1",
@@ -12,7 +12,7 @@ export const HERO_SLIDES = [
   },
   {
     tag: "Custom Orders Welcome",
-    title: "Kue Impian Anda\nKini Menjadi Nyata",
+    title: "Kue Impian\n Kini Menjadi Nyata",
     desc: "Setiap desain dibuat sesuai keinginan Anda, menghadirkan kue yang tidak hanya cantik, tetapi juga penuh makna dan kenangan.",
     cta: "Order Now",
     accent: "#f7b3c8",
