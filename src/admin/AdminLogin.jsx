@@ -58,12 +58,16 @@ function AdminLogin({ onLogin }) {
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 36 }}>
           <div style={{
-            width: 68, height: 68, borderRadius: "50%",
-            background: "linear-gradient(135deg, #f48fb1, #e91e8c)",
+            width: 80, height: 80, borderRadius: "50%",
+            background: "#1a0a0a",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 30, margin: "0 auto 16px",
+            margin: "0 auto 16px",
             boxShadow: "0 8px 32px rgba(233,30,140,0.4)",
-          }}>🎂</div>
+            border: "2px solid rgba(233,30,140,0.3)",
+            overflow: "hidden",
+          }}>
+            <img src="/logo.png" alt="Bebe Cakes Logo" style={{ width: 56, height: 56, objectFit: "contain" }} />
+          </div>
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: "#fff", marginBottom: 6 }}>Admin Panel</h1>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)" }}>Bebe Cakes Bakery Management</p>
         </div>

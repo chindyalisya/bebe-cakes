@@ -425,7 +425,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
       }}>
         <div style={{ padding: "28px 24px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 44, height: 44, borderRadius: 14, background: "linear-gradient(135deg, #f48fb1, #e91e8c)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🎂</div>
+            <div style={{ width: 44, height: 44, borderRadius: 14, background: "#1a0a0a", border: "1.5px solid rgba(233,30,140,0.35)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}><img src="/logo.png" alt="Bebe Cakes Logo" style={{ width: 30, height: 30, objectFit: "contain" }} /></div>
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 16, fontWeight: 700, color: "#fff" }}>Bebe Cakes</div>
               <div style={{ fontSize: 10, color: "#f48fb1", letterSpacing: 1.5, textTransform: "uppercase" }}>Admin Panel</div>
