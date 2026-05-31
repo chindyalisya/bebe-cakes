@@ -46,7 +46,7 @@ function AppInner() {
       height: "100vh", fontFamily: "'DM Sans', sans-serif",
       background: "#fff5f7", flexDirection: "column", gap: 16,
     }}>
-        <img src="/logo.png" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
+        <img src="/logo.png" alt="Bebe Cakes" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
       <p style={{ color: "#e91e8c", fontWeight: 600, fontSize: 18 }}>Memuat data...</p>
     </div>
   );
