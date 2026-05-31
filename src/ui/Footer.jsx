@@ -8,7 +8,7 @@ function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-              <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, #f48fb1, #e91e8c)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>🎂</div>
+            <img src="/logo.png" alt="Bebe Cakes" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
               <div>
                 <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, fontWeight: 700, color: "#fff" }}>Bebe Cakes</div>
                 <div style={{ fontSize: 10, color: "#f48fb1", letterSpacing: 2, textTransform: "uppercase" }}>Artisan Bakery</div>
@@ -36,7 +36,7 @@ function Footer() {
           <div>
             <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#fff", marginBottom: 20 }}>Our Specialties</h4>
             {["Custom Wedding Cakes", "Birthday Creations", "Cupcake Collections", "Seasonal Pastries", "Corporate Gifting", "Dessert Tables"].map((item) => (
-            <img src="/logo.png" alt="Bebe Cakes" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
+              <div key={item} style={{ fontSize: 14, color: "#a07070", padding: "6px 0" }}>🎂 {item}</div>
             ))}
           </div>
 
