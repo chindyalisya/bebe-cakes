@@ -31,7 +31,7 @@ function Navbar({ cartCount, onCartOpen, onTrackOrder }) {
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => scrollTo("home")}>
-            <img src="/logo.png" alt="Bebe Cakes" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />
+            <img src="/logo.png" alt="Bebe Cakes" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, fontWeight: 700, color: "#1a0a0a", lineHeight: 1.1 }}>Bebe Cakes</div>
               <div style={{ fontSize: 10, color: "#f06292", letterSpacing: 2, textTransform: "uppercase" }}>Artisan Bakery</div>

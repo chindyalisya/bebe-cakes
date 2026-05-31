@@ -36,7 +36,7 @@ function Footer() {
           <div>
             <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: "#fff", marginBottom: 20 }}>Our Specialties</h4>
             {["Custom Wedding Cakes", "Birthday Creations", "Cupcake Collections", "Seasonal Pastries", "Corporate Gifting", "Dessert Tables"].map((item) => (
-              <div key={item} style={{ fontSize: 14, color: "#a07070", padding: "6px 0" }}>🎂 {item}</div>
+            <img src="/logo.png" alt="Bebe Cakes" style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover" }} />
             ))}
           </div>
 
