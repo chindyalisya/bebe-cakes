@@ -23,7 +23,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
   const [selectedBank, setSelectedBank] = useState(BANK_ACCOUNTS[0]);
   const [copied, setCopied] = useState(false);
   const [ccForm, setCcForm] = useState({ number: "", name: "", expiry: "", cvv: "" });
-  const [orderForm, setOrderForm] = useState({ name: "", phone: "", email: "", occasion: "Birthday", notes: "" });
+  const [orderForm, setOrderForm] = useState({ name: "", phone: "", email: "", address: "", occasion: "Birthday", notes: "" });
   const [orderFormError, setOrderFormError] = useState("");
   const [placedOrderId, setPlacedOrderId] = useState(null);
 
@@ -68,7 +68,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
     onClose();
     setStep("cart");
     setPayMethod(null);
-    setOrderForm({ name: "", phone: "", email: "", occasion: "Birthday", notes: "" });
+    setOrderForm({ name: "", phone: "", email: "", address: "", occasion: "Birthday", notes: "" });
     setPlacedOrderId(null);
   };
 
@@ -186,6 +186,13 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                     onFocus={e => e.target.style.borderColor = "#e91e8c"} onBlur={e => e.target.style.borderColor = "#f9c5d1"} />
                 </div>
                 <div>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#8a5c5c", letterSpacing: 0.8, textTransform: "uppercase", marginBottom: 6, display: "block" }}>Alamat Pengiriman *</label>
+                  <textarea value={orderForm.address} onChange={e => setOrderForm({ ...orderForm, address: e.target.value })}
+                    placeholder="Jl. Contoh No. 1, Kelurahan, Kecamatan, Kota..."
+                    rows={2} style={{ ...inputStyle, resize: "vertical" }}
+                    onFocus={e => e.target.style.borderColor = "#e91e8c"} onBlur={e => e.target.style.borderColor = "#f9c5d1"} />
+                </div>
+                <div>
                   <label style={{ fontSize: 12, fontWeight: 700, color: "#8a5c5c", letterSpacing: 0.8, textTransform: "uppercase", marginBottom: 6, display: "block" }}>Acara / Kesempatan</label>
                   <select value={orderForm.occasion} onChange={e => setOrderForm({ ...orderForm, occasion: e.target.value })} style={{ ...inputStyle, cursor: "pointer" }}>
                     {["Birthday", "Wedding", "Anniversary", "Corporate Event", "Baby Shower", "Other"].map(o => <option key={o}>{o}</option>)}
@@ -291,6 +298,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                   <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Nama:</span> {orderForm.name}</div>
                   <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Telepon:</span> {orderForm.phone}</div>
                   {orderForm.email && <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Email:</span> {orderForm.email}</div>}
+                  {orderForm.address && <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Alamat:</span> {orderForm.address}</div>}
                   <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Acara:</span> {orderForm.occasion}</div>
                   {orderForm.notes && <div><span style={{ color: "#8a5c5c", fontWeight: 600 }}>Catatan:</span> {orderForm.notes}</div>}
                 </div>

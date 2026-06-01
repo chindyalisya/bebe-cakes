@@ -10,6 +10,16 @@ function Hero({ onAddToCart }) {
     return () => clearInterval(t);
   }, []);
 
+  // Preload semua gambar agar tidak delay saat slide berganti
+  useEffect(() => {
+    HERO_SLIDES.forEach((slide) => {
+      if (slide.image) {
+        const img = new Image();
+        img.src = slide.image;
+      }
+    });
+  }, []);
+
   return (
     <section id="home" style={{ minHeight: "100vh", position: "relative", overflow: "hidden", paddingTop: 72 }}>
       {/* Animated BG */}
@@ -58,8 +68,23 @@ function Hero({ onAddToCart }) {
 
         {/* Hero Visual */}
         <div style={{ flex: "1 1 400px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-          <div className="float-anim" style={{ fontSize: 180, userSelect: "none", filter: "drop-shadow(0 20px 40px rgba(233,30,140,0.2))", lineHeight: 1, textAlign: "center" }}>
-            {s.emoji}
+          <div className="float-anim" style={{ lineHeight: 1, textAlign: "center" }}>
+            {s.image ? (
+              <img
+                src={s.image}
+                alt={s.tag}
+                style={{
+                  width: 280, height: 280,
+                  objectFit: "contain",
+                  filter: "drop-shadow(0 20px 40px rgba(233,30,140,0.25))",
+                  transition: "opacity 0.6s ease",
+                }}
+              />
+            ) : (
+              <span style={{ fontSize: 180, userSelect: "none", filter: "drop-shadow(0 20px 40px rgba(233,30,140,0.2))" }}>
+                {s.emoji}
+              </span>
+            )}
           </div>
           {/* Floating badges */}
           <div className="float-anim-2" style={{ position: "absolute", top: "5%", right: "0%", background: "#fff", borderRadius: 16, padding: "12px 20px", boxShadow: "0 8px 32px rgba(244,143,177,0.3)", display: "flex", alignItems: "center", gap: 10 }}>

@@ -3,7 +3,7 @@ import { useInView } from "../hooks/useInView";
 
 function Contact() {
   const [ref, inView] = useInView();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", occasion: "Birthday", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", address: "", occasion: "Birthday", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -74,6 +74,7 @@ function Contact() {
                   <input name="phone" value={form.phone} onChange={handle} placeholder="No.Telephone*" style={inputStyle} />
                 </div>
                 <input name="email" value={form.email} onChange={handle} placeholder="Alamat Email *" type="email" style={inputStyle} required />
+                <input name="address" value={form.address} onChange={handle} placeholder="Alamat Lengkap (opsional)" style={inputStyle} />
                 <select name="occasion" value={form.occasion} onChange={handle} style={inputStyle}>
                   {["Birthday", "Wedding", "Anniversary", "Corporate Event", "Baby Shower", "Other"].map((o) => <option key={o}>{o}</option>)}
                 </select>

@@ -9,6 +9,7 @@ export const HERO_SLIDES = [
     accent: "#f9c5d1",
     bg: "linear-gradient(135deg, #fff5f7 0%, #fce4ec 60%, #f8bbd0 100%)",
     emoji: "🎂",
+    image: "https://i.ibb.co.com/chbMDXFz/download-23-Diedit.png",
   },
   {
     tag: "Custom Orders Welcome",
@@ -18,6 +19,7 @@ export const HERO_SLIDES = [
     accent: "#f7b3c8",
     bg: "linear-gradient(135deg, #fdf4f7 0%, #fce4ec 60%, #f48fb1 40%)",
     emoji: "💍",
+    image: "https://i.ibb.co.com/mVk7hwCG/download-24-Diedit-Diedit.png",
   },
   {
     tag: "Seasonal Specials",
@@ -27,6 +29,7 @@ export const HERO_SLIDES = [
     accent: "#ddb0e8",
     bg: "linear-gradient(135deg, #fdf0ff 0%, #f3e5f5 60%, #e1bee7 100%)",
     emoji: "🌸",
+    image: "https://i.ibb.co.com/DfnJDnzK/download-22-Diedit.png",
   },
 ];
 
