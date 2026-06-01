@@ -28,7 +28,7 @@ const PAY_LABELS = {
   cc:       "💳 Kartu Kredit",
 };
 
-// ── Stat Card ──────────────────────────────────────────────
+// Stat Card 
 function StatCard({ icon, label, value, color }) {
   return (
     <div style={{
@@ -46,7 +46,7 @@ function StatCard({ icon, label, value, color }) {
   );
 }
 
-// ── Product Form Modal ─────────────────────────────────────
+// Product Form Modal 
 function ProductModal({ product, onSave, onClose }) {
   const [form, setForm] = useState(product || EMPTY_PRODUCT);
   const [imgPreview, setImgPreview] = useState(product?.imageUrl || "");
@@ -240,7 +240,7 @@ function ProductModal({ product, onSave, onClose }) {
   );
 }
 
-// ── Delete Confirm ─────────────────────────────────────────
+//  Delete Confirm 
 function DeleteConfirm({ product, onConfirm, onClose }) {
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 3000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
@@ -260,7 +260,7 @@ function DeleteConfirm({ product, onConfirm, onClose }) {
   );
 }
 
-// ── Order Detail Modal ─────────────────────────────────────
+// Order Detail Modal 
 function OrderDetailModal({ order, onClose, onUpdateStatus }) {
   // Baris statusInfo sudah dihapus karena tidak dipakai
   const dateStr = new Date(order.createdAt).toLocaleString("id-ID", { dateStyle: "medium", timeStyle: "short" });
@@ -343,7 +343,7 @@ function OrderDetailModal({ order, onClose, onUpdateStatus }) {
   );
 }
 
-// ── Main Dashboard ─────────────────────────────────────────
+// Main Dashboard 
 function AdminDashboard({ onLogout, onViewStore }) {
   const { products, addProduct, updateProduct, deleteProduct, orders, updateOrderStatus } = useProducts();
   const [search, setSearch] = useState("");
@@ -417,7 +417,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
   return (
     <div style={{ display: "flex", minHeight: "100vh", fontFamily: "'DM Sans', sans-serif", background: "#f8f0f2" }}>
 
-      {/* ── Sidebar ── */}
+      {/* Sidebar */}
       <aside style={{
         width: 240, background: "linear-gradient(180deg, #1a0a0a 0%, #2d1010 100%)",
         display: "flex", flexDirection: "column",
@@ -473,7 +473,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
         </div>
       </aside>
 
-      {/* ── Main Content ── */}
+      {/*  Main Content  */}
       <main style={{ flex: 1, overflowY: "auto", padding: "32px 36px" }}>
 
         {sidebar === "menu" ? (
@@ -555,7 +555,7 @@ function AdminDashboard({ onLogout, onViewStore }) {
             </div>
           </>
         ) : (
-          /* ── Orders Tab ── */
+          /*  Orders Tab  */
           <>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24, flexWrap: "wrap", gap: 16 }}>
               <div>

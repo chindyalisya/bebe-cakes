@@ -19,7 +19,11 @@ function About() {
             borderRadius: 32, padding: "60px 40px", textAlign: "center",
             boxShadow: "0 20px 60px rgba(244,143,177,0.2)",
           }}>
-            <div style={{ fontSize: 120, marginBottom: 20, filter: "drop-shadow(0 10px 20px rgba(233,30,140,0.2))" }}>🎂</div>
+            <img
+              src="https://i.ibb.co.com/chbMDXFz/download-23-Diedit.png"
+              alt="Bebe Cakes"
+              style={{ width: 180, height: 180, objectFit: "contain", marginBottom: 20, filter: "drop-shadow(0 10px 20px rgba(233,30,140,0.2))" }}
+            />
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, fontStyle: "italic", color: "#c2185b" }}>
               "Baked Fresh For You,<br />Every Single Morning"
             </div>
