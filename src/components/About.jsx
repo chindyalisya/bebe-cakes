@@ -35,7 +35,7 @@ function About() {
             boxShadow: "0 12px 40px rgba(244,143,177,0.25)",
           }}>
             <div style={{ fontSize: 36 }}>🏆</div>
-            <div style={{ fontWeight: 700, fontSize: 18, color: "#1a0a0a", marginTop: 8 }}>50+ Awards</div>
+            <div style={{ fontWeight: 700, fontSize: 18, color: "#1a0a0a", marginTop: 8 }}>20+ Awards</div>
             <div style={{ fontSize: 13, color: "#8a5c5c" }}>Regional & National</div>
           </div>
           {/* Floating pill */}

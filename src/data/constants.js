@@ -48,23 +48,23 @@ export const PRODUCTS = [
 
 export const STATS = [
   { val: "3+", label: "Years Baking" },
-  { val: "12K+", label: "Happy Customers" },
+  { val: "8K+", label: "Happy Customers" },
   { val: "200+", label: "Cake Designs" },
-  { val: "50+", label: "Awards Won" },
+  { val: "20+", label: "Awards Won" },
 ];
 
 export const TESTIMONIALS = [
-  { name: "Zelin Ayra", role: "Birthday Celebration, Mei 2025", text: "Ihhh suka banget langganan di sini 😭💗 Cream-nya lumer, buahnya banyak, dan semuanya fresh banget. Pokoknya nggak pernah nyesel kalau order di Bebe Cakes!", stars: 5, initial: "AW" },
-  { name: "Jeane Odinne", role: "Corporate Event, Maret 2026", text: "Pesen dessert buat acara kantor dan literally habis dengan cepat 😭🙏 Semua pada nanya belinya di mana karena seenak itu. Teksturnya lembut, manisnya pas, dan tampilannya juga super aesthetic, lovee banget sama Bebe Cakes 💖", stars: 5, initial: "BS" },
-  { name: "Elora Arvelyna", role: "Bride, February 2026", text: "AKU OBSESSED 😩💖 Kuenya cantik banget, bahkan lebih bagus dari foto yang dikirim. Pas datang langsung jadi pusat perhatian, temanya menyatu dan bener-bener cantikkk. Rasanya juga enak parah dan para tamu suka ><", stars: 5, initial: "CM" },
-  { name: "Kaina Semitha", role: "Customer, April 2026", text: "Babe Cakes tuh definisi cake yang CANTIK DAN ENAKKK. Soalnya kadang ada yang tampilannya bagus doang, tapi di sini dua-duanya dapet 😭🫶 Kuenya lembut, cream-nya ringan, dan dekorasinya selalu detail.", stars: 5, initial: "DP" },
+  { name: "Zelin Ayra", role: "Birthday Celebration, Mei 2025", text: "Ihhh suka banget langganan di sini 😭💗 Cream-nya lumer, buahnya banyak, dan semuanya fresh banget. Pokoknya nggak pernah nyesel kalau order di Bebe Cakes!", stars: 5, initial: "ZA" },
+  { name: "Jeane Odinne", role: "Corporate Event, Maret 2026", text: "Pesen dessert buat acara kantor dan literally habis dengan cepat 😭🙏 Semua pada nanya belinya di mana karena seenak itu. Teksturnya lembut, manisnya pas, dan tampilannya juga super aesthetic, lovee banget sama Bebe Cakes 💖", stars: 5, initial: "JO" },
+  { name: "Elora Arvelyna", role: "Bride, February 2026", text: "AKU OBSESSED 😩💖 Kuenya cantik banget, bahkan lebih bagus dari foto yang dikirim. Pas datang langsung jadi pusat perhatian, temanya menyatu dan bener-bener cantikkk. Rasanya juga enak parah dan para tamu suka ><", stars: 5, initial: "EA" },
+  { name: "Kaina Semitha", role: "Customer, April 2026", text: "Babe Cakes tuh definisi cake yang CANTIK DAN ENAKKK. Soalnya kadang ada yang tampilannya bagus doang, tapi di sini dua-duanya dapet 😭🫶 Kuenya lembut, cream-nya ringan, dan dekorasinya selalu detail.", stars: 5, initial: "KS" },
 ];
 
 export const TEAM = [
-  { name: "Chef Chindy Alieisyia", role: "Head Pastry Chef", exp: "12 years • Le Cordon Bleu Paris", color: "#f9c5d1", initial: "CA" },
+  { name: "Chef Chindy Alieisyia", role: "Head Pastry Chef", exp: "5+ years • Le Cordon Bleu Paris", color: "#f9c5d1", initial: "CA" },
   { name: "Farida Auliya", role: "Cake Designer", exp: "3 years • Award-winning artist", color: "#ddb0e8", initial: "FA" },
-  { name: "Maulidia Suhesti", role: "Flavor Specialist", exp: "6 years • Natural ingredients expert", color: "#b5e4c0", initial: "MS" },
-  { name: "Queenara Audrey", role: "Delivery & Quality", exp: "5 years • Freshness guaranteed", color: "#ffe0b2", initial: "QA" },
+  { name: "Maulidia Suhesti", role: "Flavor Specialist", exp: "5 years • Natural ingredients expert", color: "#b5e4c0", initial: "MS" },
+  { name: "Queenara Audrey", role: "Delivery & Quality", exp: "3 years • Freshness guaranteed", color: "#ffe0b2", initial: "QA" },
 ];
 
 export const GALLERY = [
