@@ -11,6 +11,7 @@ const BANK_ACCOUNTS = [
   { bank: "BCA", no: "1234 5678 9012", name: "Bebe Cakes Bakery" },
   { bank: "BNI", no: "9876 5432 1000", name: "Bebe Cakes Bakery" },
   { bank: "Mandiri", no: "1170 0087 6543 21", name: "Bebe Cakes Bakery" },
+  { bank: "BRI", no: "7080 5555 3960 222", name: "Bebe Cakes Bakery" },
 ];
 
 // step: "cart" → "custom-order" → "payment" → "confirm"
@@ -193,7 +194,7 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                     onFocus={e => e.target.style.borderColor = "#e91e8c"} onBlur={e => e.target.style.borderColor = "#f9c5d1"} />
                 </div>
                 <div>
-                  <label style={{ fontSize: 12, fontWeight: 700, color: "#8a5c5c", letterSpacing: 0.8, textTransform: "uppercase", marginBottom: 6, display: "block" }}>Acara / Kesempatan</label>
+                  <label style={{ fontSize: 12, fontWeight: 700, color: "#8a5c5c", letterSpacing: 0.8, textTransform: "uppercase", marginBottom: 6, display: "block" }}>Acara</label>
                   <select value={orderForm.occasion} onChange={e => setOrderForm({ ...orderForm, occasion: e.target.value })} style={{ ...inputStyle, cursor: "pointer" }}>
                     {["Birthday", "Wedding", "Anniversary", "Corporate Event", "Baby Shower", "Other"].map(o => <option key={o}>{o}</option>)}
                   </select>
@@ -340,10 +341,16 @@ function CartDrawer({ cart, onClose, onRemove, onQtyChange, onOrderPlace, onClea
                     <p style={{ fontSize: 12, color: "#8a5c5c", marginTop: 10 }}>Kirim bukti transfer ke WhatsApp <strong>+62 821 3321 3974</strong> untuk konfirmasi pesanan.</p>
                   </div>
                 )}
-                {payMethod === "qris" && (
+               {payMethod === "qris" && (
                   <div style={{ textAlign: "center" }}>
                     <div style={{ background: "#fff", borderRadius: 16, padding: "24px", display: "inline-block", boxShadow: "0 4px 16px rgba(0,0,0,0.08)" }}>
-                      <div style={{ width: 140, height: 140, background: "linear-gradient(135deg, #fce4ec, #f9c5d1)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 56, margin: "0 auto 12px" }}>📲</div>
+                      <div style={{ width: 140, height: 140, borderRadius: 12, margin: "0 auto 12px", overflow: "hidden" }}>
+                        <img 
+                          src="https://i.ibb.co.com/WN9yhjjw/Bebe-Cakes-1024.png" 
+                          alt="QRIS Barcode"
+                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
+                      </div>
                       <div style={{ fontSize: 12, color: "#8a5c5c" }}>Scan dengan aplikasi e-wallet</div>
                       <div style={{ fontWeight: 800, fontSize: 16, color: "#e91e8c", marginTop: 6 }}>Rp {total.toLocaleString("id-ID")}</div>
                     </div>
